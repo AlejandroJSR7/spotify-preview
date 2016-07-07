@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+  <meta name="description" content="Here a preview songs, albums, and playlists on Spotify.">
+
+  <title>Spotify Preview. A better way to preview any song, album, artist or playlist.</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://s0.wp.com/wp-content/themes/vip/spotify-usa/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://s0.wp.com/wp-content/themes/vip/spotify-usa/images/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://s0.wp.com/wp-content/themes/vip/spotify-usa/images/icons/favicon-16x16.png">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/simpletextrotator.min.css">
+  <link rel="stylesheet" href="css/spotify.css">
+</head>
+<body>
+
+  <div class="main-container">
+    <header>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+              <img alt="Brand" src="images/logos/spotify-logo-horizontal-white-rgb.png">
+            </a>
+            <span class="navbar-title">Preview</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div id="main" class="main">
+      <div class="container-fluid">
+        <div class="welcome">
+          <h2 class="welcome__title">Welcome to Spotify Preview</h2>
+          <h3 class="rotate-text">Listen your favorite <strong id="rotate-text">artist, album, track, playlist</strong>.</h3>
+        </div>
+        <div class="form">
+          <ul class="list-options">
+            <li id="listenOption_Artist" class="active">artist</li>
+            <li id="listenOption_Album">album</li>
+            <li id="listenOption_Track">track</li>
+            <li id="listenOption_Playlist">playlist</li>
+          </ul>
+          <form>
+            <input id="inputSearch_Artist" class="inputSearch active" type="text" name="" placeholder="I want listen Artist">
+            <input id="inputSearch_Album" class="inputSearch" type="text" name="" placeholder="I want listen Album">
+            <input id="inputSearch_Track" class="inputSearch" type="text" name="" placeholder="I want listen Track">
+            <input id="inputSearch_Playlist" class="inputSearch" type="text" name="" placeholder="I want listen Playlist">
+          </form>
+        </div>
+        <div id="results" class="results">
+          <div class="result-song"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/jquery.min.js"></script>
+  <script src="js/handlebars.min.js"></script>
+  <script src="js/jquery.simple-text-rotator.min.js"></script>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
