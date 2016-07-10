@@ -45,15 +45,19 @@
             <li id="listenOption_Playlist" data-option="playlist">playlist</li>
           </ul>
           <form>
-            <input id="inputSearch_Name" class="inputSearch" data-search="" type="text" name="" placeholder="Search Track">
+            <input id="inputSearch_Name" class="inputSearch" type="text" name="" placeholder="Search Track">
           </form>
         </div>
-        <div id="results" class="results"></div>
+        <div id="results" class="results">
+          <div id="no-result" class="alert alert-danger text-center">
+            <strong>Try again</strong>, we don't have results for your search.
+          </div>
+        </div>
       </div>
     </div>
   </div>
   
-  <script id="resultsTemplate" type="text/x-handlebars-template">
+  <script id="resultsTrackTemplate" type="text/x-handlebars-template">
     {{#each tracks.items}}
       <div class="results-song clearfix">
         <figure class="results-song__image">
@@ -61,10 +65,53 @@
         </figure>
         <h3 class="results-song__title">{{this.artists.0.name}}</h3>
         <span class="results-song__subtitle">{{this.album.name}}</span>
-        <div class="results-song__audio">
+        <div class="results-song__audio clearfix">
           <audio controls>
             <source src="{{this.preview_url}}" type="audio/mpeg">
           </audio>
+        </div>
+      </div>
+    {{/each}}
+  </script>
+
+  <script id="resultsArtistTemplate" type="text/x-handlebars-template">
+    {{#each artists.items}}
+      <div class="results-song clearfix">
+        <figure class="results-song__image">
+          <img src="{{this.images.0.url}}" alt="">
+        </figure>
+        <h3 class="results-song__title">{{this.name}}</h3>
+        <span class="results-song__subtitle"><strong>Genres</strong>: {{this.genres}}</span>
+        <div class="results-song__external-link clearfix">
+          <strong>Page on Spotify</strong>: <a href="{{this.external_urls.spotify}}" target="_blank">Go!</a>
+        </div>
+      </div>
+    {{/each}}
+  </script>
+
+  <script id="resultsAlbumTemplate" type="text/x-handlebars-template">
+    {{#each albums.items}}
+      <div class="results-song clearfix">
+        <figure class="results-song__image">
+          <img src="{{this.images.0.url}}" alt="">
+        </figure>
+        <h3 class="results-song__title">{{this.name}}</h3>
+        <div class="results-song__external-link clearfix">
+          <strong>Listen this Album on Spotify</strong>: <a href="{{this.external_urls.spotify}}" target="_blank">Go!</a>
+        </div>
+      </div>
+    {{/each}}
+  </script>
+
+  <script id="resultsPlaylistTemplate" type="text/x-handlebars-template">
+    {{#each playlists.items}}
+      <div class="results-song clearfix">
+        <figure class="results-song__image">
+          <img src="{{this.images.0.url}}" alt="">
+        </figure>
+        <h3 class="results-song__title">{{this.name}}</h3>
+        <div class="results-song__external-link clearfix">
+          <strong>Page on Spotify</strong>: <a href="{{this.external_urls.spotify}}" target="_blank">Go!</a>
         </div>
       </div>
     {{/each}}
