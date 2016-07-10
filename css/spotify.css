@@ -1,6 +1,7 @@
 * {box-sizing: border-box;}
 
 body {
+  background-color: #f5f5f2;
   font-family: 'Open Sans', sans-serif;
 }
 /*temporal no result*/
@@ -12,6 +13,7 @@ body {
 
 .main-container {
   background-image: url('../images/bg/woman-listening-to-music.jpg');
+  background-color: #f5f5f2;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
