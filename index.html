@@ -23,7 +23,7 @@
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="http://alejandrojsr7.github.io/">
               <img alt="Brand" src="images/logos/spotify-logo-horizontal-white-rgb.png">
             </a>
             <span class="navbar-title">Preview</span>
@@ -35,29 +35,41 @@
       <div class="container-fluid">
         <div class="welcome">
           <h2 class="welcome__title">Welcome to Spotify Preview</h2>
-          <h3 class="rotate-text">Listen your favorite <strong id="rotate-text">artist, album, track, playlist</strong>.</h3>
+          <h3 class="rotate-text">Listen your favorite <strong id="rotate-text">track, artist, album, playlist</strong>.</h3>
         </div>
         <div class="form">
           <ul class="list-options">
-            <li id="listenOption_Artist" class="active">artist</li>
-            <li id="listenOption_Album">album</li>
-            <li id="listenOption_Track">track</li>
-            <li id="listenOption_Playlist">playlist</li>
+            <li id="listenOption_Track" data-option="track" class="active">track</li>
+            <li id="listenOption_Artist" data-option="artist">artist</li>
+            <li id="listenOption_Album" data-option="album">album</li>
+            <li id="listenOption_Playlist" data-option="playlist">playlist</li>
           </ul>
           <form>
-            <input id="inputSearch_Artist" class="inputSearch active" type="text" name="" placeholder="I want listen Artist">
-            <input id="inputSearch_Album" class="inputSearch" type="text" name="" placeholder="I want listen Album">
-            <input id="inputSearch_Track" class="inputSearch" type="text" name="" placeholder="I want listen Track">
-            <input id="inputSearch_Playlist" class="inputSearch" type="text" name="" placeholder="I want listen Playlist">
+            <input id="inputSearch_Name" class="inputSearch" data-search="" type="text" name="" placeholder="Search Track">
           </form>
         </div>
-        <div id="results" class="results">
-          <div class="result-song"></div>
-        </div>
+        <div id="results" class="results"></div>
       </div>
     </div>
   </div>
   
+  <script id="resultsTemplate" type="text/x-handlebars-template">
+    {{#each tracks.items}}
+      <div class="results-song clearfix">
+        <figure class="results-song__image">
+          <img src="{{this.album.images.0.url}}" alt="">
+        </figure>
+        <h3 class="results-song__title">{{this.artists.0.name}}</h3>
+        <span class="results-song__subtitle">{{this.album.name}}</span>
+        <div class="results-song__audio">
+          <audio controls>
+            <source src="{{this.preview_url}}" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    {{/each}}
+  </script>
+
   <script src="js/jquery.min.js"></script>
   <script src="js/handlebars.min.js"></script>
   <script src="js/jquery.simple-text-rotator.min.js"></script>

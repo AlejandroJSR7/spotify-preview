@@ -5,11 +5,12 @@ body {
 }
 
 .main-container {
-  background-image: url('../images/bg/bg_concert.jpg');
-  background-repeat: no-repeat;
+  background-image: url('../images/bg/woman-listening-to-music.jpg');
   background-position: center center;
+  background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  background-attachment: fixed;
+  min-height: 100vh;
   position: relative;
 }
 
@@ -86,7 +87,8 @@ body {
 .form input {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 2px;
-  border: 1px solid rgb(0, 119, 143);
+  // border: 1px solid rgb(0, 119, 143);
+  border: none;
   font-size: 24px;
   padding: .5em 1em;
   text-align: center;
@@ -120,12 +122,61 @@ body {
   background: #2c3e50;
 }
 
-.inputSearch {
-  display: none;
-}
-
 .inputSearch.active {
   display: inline-block;
 }
 
 
+/***************/
+// header{display: none;}
+// .results{
+//   background: red;
+//   height: 40vh;
+//   left: 0;
+//   position: fixed;
+//   top: 0;
+//   width: 100%;
+//   z-index: 100000;
+// }
+
+// .results p{
+//   background: blue;
+//   color: white;
+//   height: 150px;
+// }
+
+.results{
+  margin: 10px auto 0;
+  width: 560px;
+}
+
+.results-song {
+  background: white;
+  border-radius: 2px;
+  margin: 0 auto 10px;
+  overflow: hidden;
+  text-align: left;
+}
+.results-song__image {
+  float: left;
+  max-width: 200px;
+  margin-right: 20px;
+}
+.results-song__image img{
+  max-width: 100%;
+}
+.results-song__title {
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  margin: 10px 0 10px;
+}
+.results-song__subtitle {
+  display: block;
+  margin-bottom: 20px;
+}
+.results-song__audio {
+  margin-bottom: 10px;
+}
+.results-song__audio audio {}
