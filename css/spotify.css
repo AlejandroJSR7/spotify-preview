@@ -3,8 +3,12 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
-
-// #no-result{display: none;}
+/*temporal no result*/
+#no-result {
+  display: none;
+  position: absolute;
+  width: 100%;
+}
 
 .main-container {
   background-image: url('../images/bg/woman-listening-to-music.jpg');
@@ -128,33 +132,14 @@ body {
   display: inline-block;
 }
 
-
-/***************/
-// header{display: none;}
-// .results{
-//   background: red;
-//   height: 40vh;
-//   left: 0;
-//   position: fixed;
-//   top: 0;
-//   width: 100%;
-//   z-index: 100000;
-// }
-
-// .results p{
-//   background: blue;
-//   color: white;
-//   height: 150px;
-// }
-
 .results{
   margin: 10px auto 0;
+  position: relative;
   width: 560px;
 }
 
 .results-song {
-  background: rgba(255,255,255,0.5);
-  border-widht: 2px;
+  background: white;
   border-color: white;
   border-top: 2px;
   border-bottom: 2px;
@@ -162,6 +147,8 @@ body {
   margin: 0 auto 10px;
   overflow: hidden;
   text-align: left;
+  position: relative;
+  z-index: 10;
 }
 .results-song__image {
   float: left;

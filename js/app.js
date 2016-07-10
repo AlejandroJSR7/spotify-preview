@@ -28,10 +28,8 @@ $(document).ready(function(){
 
     inputSearch_Name.focus();
     valueOfOption = $(this).attr("data-option");
-
     inputSearch_Name.attr("placeholder", "Search "+valueOfOption+"");
 
-    console.log(valueOfOption);
   });
 
   function showResults(url){
@@ -41,8 +39,7 @@ $(document).ready(function(){
       $.getJSON(url, function(data){
         $('#results').append(template(data));
 
-        console.log(data);
-
+//No funciona ¿?
         // if(data.tracks.items.length == 0){
         //   $('#no-result').show();
         // } else {
@@ -80,28 +77,18 @@ $(document).ready(function(){
       callJSON("#resultsPlaylistTemplate");
     }
 
-    console.log("Funciono");
-
-    if(!$('#no-result').has().siblings('.results-song')){
-      $('#no-result').show();
-    } else {
-      $('#no-result').hide();
-    }
-
   }
 
   inputSearch_Name.keypress(function(event){
     if(event.keyCode == 13){
       event.preventDefault();
+      $('#no-result').fadeIn(2000);//temporal show
       $('.results .results-song').remove();
 
       nameOfSearch = inputSearch_Name.val();
       nameOfSearch = encodeURIComponent(nameOfSearch);
 
       urlToFindSomething = "https://api.spotify.com/v1/search?q="+nameOfSearch+"&type="+valueOfOption+"";
-
-      console.log("Mi URL: " + urlToFindSomething);
-      console.log("Hola Enter");
 
       showResults(urlToFindSomething);
       
